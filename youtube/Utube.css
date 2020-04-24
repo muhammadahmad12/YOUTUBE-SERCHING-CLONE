@@ -1,0 +1,180 @@
+body{
+    margin: 0%;
+    padding: 0%;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+}
+#main{
+    display: grid;
+    position: relative;
+    grid-template-columns: 20% 80%;
+}
+#left{
+height: 200vh;
+/* border: 1px solid; */
+display: grid;
+position: sticky;
+top: 0;
+}
+
+#one{
+display: grid;
+height: 12vh;
+grid-template-columns: 25% 75%;
+align-items: center;
+}
+#logo{
+    color: black;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+#logo .fab{
+color: red;
+font-size: 1.5rem;
+cursor: pointer;
+}
+
+#navbtn{
+    height: 6vh;
+    width: 3vw;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    color: rgb(66, 65, 65);
+    border: none;
+    justify-self:center;
+    align-self: center;
+    cursor: pointer;
+}
+#two{
+    display: grid;
+    border-bottom: 1px solid rgb(206, 205, 205);
+    height: 27vh;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: repeat(3,1fr);
+    font-size: .9rem;
+    font-weight: lighter;
+    cursor: pointer;
+}
+.fas, .far, .fab{
+    justify-self: center;
+    color: grey;
+    align-self: center;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#three{
+    height: 55vh;
+    display: grid;
+    border-bottom: 1px solid rgb(206, 205, 205);
+    grid-template-columns: 25% 75%;
+    grid-template-rows: repeat(3,1fr);
+    font-size: .9rem;
+    font-weight: lighter;
+    cursor: pointer;
+}
+#four{
+    height: 55vh;
+    display: grid;
+    border-bottom: 1px solid rgb(206, 205, 205);
+    grid-template-columns: 25% 75%;
+    grid-template-rows: repeat(3,1fr);
+    font-size: .9rem;
+    font-weight: lighter;
+    cursor: pointer;
+}
+
+#fotr{
+    height: 25vh;
+    text-align: center;
+}
+#fotr p{
+    font-weight: 600;
+    word-spacing: 5px;
+    color: grey;
+    font-size: .8rem;
+}
+
+#right{
+    display: grid;
+    position: relative;
+    grid-template-rows: 10vh auto;
+}
+
+#ri{
+    display: grid;
+    grid-template-columns: 70% 20%;
+    height: 10vh;
+justify-content: space-around;
+}
+#srch{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+#inp{
+    width: 45vw;
+    height: 6vh;
+    align-self: center;
+    border: 1px solid rgb(224, 214, 214);
+    font-size: 1.2rem;
+}
+#srbtn{
+    height: 6.3vh;
+    align-self: center;
+    width: 6vw;
+    border: none;
+}
+#icn{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    font-size: 1.2rem;
+    color: rgb(78, 77, 77);
+    align-items: center;
+    justify-content: flex-end;
+}
+#icn .fas{
+    cursor: pointer;
+}
+#pic{
+    width: 3vw;
+    height: 6vh;
+    background-image: url(./one\ \(2\).jpg);
+    background-size: 100% 100%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#output{
+    display: grid;
+}
+
+@media screen and (max-width:480px){
+    #output{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+#frames{
+ width: 70%;
+ 
+}
+
+#frames>div{
+    margin: 10px;
+    width: 100%;
+    height: auto;
+    display: grid;
+ grid-template-columns: repeat(2, 1fr);
+}
+#desp{
+    height: 35vh;
+    /* border: 1px solid; */
+    position: relative;
+    bottom: 10%;
+}
+#vdo{
+ height: 55vh;
+ width: 65%;
+display: none;
+ margin: 10px;
+}

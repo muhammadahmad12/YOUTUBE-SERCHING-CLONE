@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f4d5cd1810.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <link rel="stylesheet" href="./Utube.css">
+    <title>Youtube</title>
+</head>
+<body>
+    <div id="main">
+<div id="left">
+    <nav id="one">
+        <button id="navbtn"><i class="fas fa-bars"></i></button>
+        <h5 id="logo"><i class="fab fa-youtube"></i>Youtube</h5>
+    </nav>
+<nav id="two">
+    <i class="fas fa-home" style="color: red;"></i>
+    <h4>Home</h4>
+    <i class="fas fa-fire"></i>
+    <h4>Trending</h4>
+    <i class="fas fa-play"></i>
+    <h4>Subscriptions</h4>
+</nav>
+<nav id="three">
+    <i class="fas fa-photo-video"></i>
+    <h4>Library</h4>
+    <i class="fas fa-history"></i>
+    <h4>History</h4>
+    <i class="far fa-play-circle"></i>
+    <h4>Your videos</h4>
+    <i class="fas fa-clock"></i>
+    <h4>Watch later</h4>
+    <i class="fas fa-list"></i>
+    <h4>Fav</h4>
+    <i class="fas fa-thumbs-up"></i>
+    <h4>Liked videos</h4>
+</nav>
+<nav id="four">
+    <i class="fas fa-gamepad"></i>
+    <h4>Gaming</h4>
+    <i class="fas fa-wifi"></i>
+    <h4>Live</h4>
+    <i class="fas fa-cog"></i>
+    <h4>Settings</h4>
+    <i class="fas fa-flag"></i>
+    <h4>Repot history</h4>
+    <i class="fas fa-question-circle"></i>
+    <h4>Help</h4>
+    <i class="fab fa-youtube-square"></i>
+    <h4>Send feedback</h4>
+</nav>
+<footer id="fotr">
+    <p>About Press Copyright <br>
+         Contact us Creators <br>
+          Advertise Developers</p>
+          <p>Terms Privacy Policy & Safety <br>
+             Test new features</p>
+             &copy; Google LLC
+</footer>
+</div>
+<div id="right">
+    <nav id="ri">
+        <div id="srch">
+        <input type="search" id="inp" placeholder="Search">
+        <button id="srbtn"><i class="fas fa-search"></i></button>
+     </div>
+     <div id="icn">
+         <i class="fas fa-video"></i>
+         <i class="fas fa-braille"></i>
+         <i class="fas fa-bell"></i>
+         <div id="pic"></div>
+     </div>
+    </nav>
+    <div id="output">
+        <iframe src="" id="vdo" frameborder="0" allowfullscreen></iframe>
+<div id="frames"></div>
+</div>
+</div>
+</div>
+    <script>
+$("#srbtn").on("click",function(){
+       $("#frames").html("")
+        let inp = $("#inp").val()
+       $.ajax({
+            url:"https://www.googleapis.com/youtube/v3/search",
+            method:"GET",
+            data:{
+            q:inp,
+            part:"snippet",
+            key:"AIzaSyB9946hhhcU9DDobwAiHtCaP9u9EjOxS_E",
+            maxResults: 9
+        },
+        success: function(response, status){
+            let _link = "https://www.youtube.com/embed/";
+let _resp = response.items
+$.each(_resp, function(i){
+    let vido = _resp[i].id.videoId;
+   let title = _resp[i].snippet.title
+   let _pic = _resp[i].snippet.thumbnails.medium.url;
+   let _des = _resp[i].snippet.description;
+   let ch = _resp[i].snippet.channelTitle;
+   let vo = _resp[i].snippet.publishedAt;
+   $("#frames").append(`<div>
+        <img src= "${_pic}" id="${vido}">
+        <div id = "desp">
+        <h4>
+    ${title}
+    </h4>
+<h6>${ch+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+vo}</h6>
+    <p>
+        ${_des}
+        </p>
+        </div>
+    </div>`)
+    $("#frames img").click(function(){
+    var ar=this.id
+    console.log(ar);
+    let url = _link+ar;
+    $("#vdo").css("display","block")
+    $("#vdo").attr("src",url)
+})
+})
+console.log(response);
+}
+ })
+    }) 
+        </script>
+</body>
+</html>
